@@ -1,0 +1,76 @@
+---
+title: "MechaCarChallenge Notebook"
+assignment: Challenge 15
+author: Samad Fassihi
+---
+```{r}
+
+```
+---
+Helpful Commands
+ Add new chunk *Cmd+Option+I*
+ Preview HTML *Cmd+Shift+K* 
+---
+```{r}
+
+```
+# Set current working directory
+setwd("~/Documents/Data Analytics Course/Module 15/AutosRUs Challenge/data ")
+```{r}
+
+```
+# Import MechaCar raw csv 
+MechaCar_mpg <- read.csv('MechaCar_mpg.csv',check.names = F, stringsAsFactors = F)
+```{r echo=FALSE, paged.print=TRUE}
+head(MechaCar_mpg)
+```
+# Perform multivariate linear regression to estimate mpg; Return summary statistics
+```{r}
+summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = MechaCar_mpg))
+```
+
+matrix_coef <- summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD, data = MechaCar_mpg))$coefficients
+
+```{r}
+head(matrix_coef)
+```
+```{r}
+
+```
+# Import Suspension Coil raw data
+Suspension_Coil <- read.csv('Suspension_Coil.csv',check.names = F, stringsAsFactors = F)
+```{r}
+head(Suspension_Coil)
+```
+# Create summary for dataframe on 'PSI' column using pipe operator
+total <- Suspension_Coil %>% summarize(Mean = mean(PSI), Median = median(PSI), Variance = var(PSI), SD = sd(PSI), .groups = 'keep')
+```{r}
+head(total)
+```
+# Group by on Manufacturing Lot for lot_summary
+lot_summary <- Suspension_Coil %>% group_by(Manufacturing_Lot) %>% summarize(Mean = mean(PSI), Median = median(PSI), Variance = var(PSI), SD = sd(PSI), .groups = 'keep')
+```{r}
+head(lot_summary)
+```
+# Perform statistical tests on Manufacturing Lots and determine if are statistically different from the population mean (1500 PSI)
+t_test_all <- t.test(Suspension_Coil$PSI, mu = 1500)
+```{r}
+head(t_test_all$p.value)
+```
+
+t_test_lot1 <- t.test(subset(Suspension_Coil, Manufacturing_Lot == 'Lot1')$PSI, mu = 1500)
+t_test_lot2 <- t.test(subset(Suspension_Coil, Manufacturing_Lot == 'Lot2')$PSI, mu = 1500)
+t_test_lot3 <- t.test(subset(Suspension_Coil, Manufacturing_Lot == 'Lot3')$PSI, mu = 1500)
+
+```{r}
+head(t_test_lot1$p.value)
+head(t_test_lot2$p.value)
+head(t_test_lot3$p.value)
+
+
+```
+plt <- ggplot(Suspension_Coil, aes(x=log10(PSI)))
+```{r}
+plt + geom_density()
+
+```
