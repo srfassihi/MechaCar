@@ -1,4 +1,4 @@
-# MechaCar
+# MechaCar Statistical Analysis
 
 ## Overview
 
@@ -44,5 +44,18 @@ Weight capacities in PSI were tested to determine the consistency of the manufac
 | 3 | 1496.14 | 1498.5 | 170.2861224 | 13.0493725 |
 | Total | 1498.78 | 1500 | 62.29356 | 7.892627 |
 
+The MechaCar specifications dictate that the suspension coils must not exceed variance of 100 PSI. Since Lot 3 exceeds that specification, it does not meet the design requirements. The other lots 1 & 2 meet the MechaCar specifications. 
 
+# Deliverable 3: T-Tests on Suspension Coils
+Perform t-test on each manufacturing lot for the suspension coil dataset to determine the statistical similarity of the coil PSI rating to the mean of 1500 PSI. The p-value must be greater than 0.05 to be considered similar enough to the mean.  These are the results which show the statistical similarity of each lot's suspension coils to the mean:
+
+| Lot # | p-value | Statistically similar? |
+|:---|:---|:---|
+| 1 | 1 | Yes | 
+| 2 | 0.6071669 | Yes |
+| 3 | 0.04167797 | No | 
+| Total | 0.06027753 | Yes | 
+
+# Deliverable 4: MechaCar vs. Competition Study
+The designed study must answer the question comparing some publically available metrics for different car manufacturers. 
 
