@@ -76,6 +76,7 @@ The designed study must answer the question comparing Mechacar to some other car
 5. Model Year
 6. Used or New
 7. No. Owners
+8. Total Mileage
 
 ### Continuous Data
 1. Dates of Maintenance
