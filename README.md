@@ -87,7 +87,7 @@ The designed study must answer the question comparing Mechacar to some other car
 
 ### Discretized Data using Summary Statistics
 1. Maintenance Count
-2. Incremental Miles Driven
+2. Avg Incremental Miles Driven per maintenance
 3. Avg Service Cost per miles driven
 4. Avg Labor Cost per miles driven
 5. Avg Parts Cost per miles driven
