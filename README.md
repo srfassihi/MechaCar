@@ -57,5 +57,47 @@ Perform t-test on each manufacturing lot for the suspension coil dataset to dete
 | Total | 0.06027753 | Yes | 
 
 # Deliverable 4: MechaCar vs. Competition Study
-The designed study must answer the question comparing some publically available metrics for different car manufacturers. 
+The designed study must answer the question comparing Mechacar to some other car manufactures using publically available metrics. For this study I propose we compare the car reliability of various car models of similar category (Sedan, SUV, Truck) and size (Compact, Mid, Full) and Model year. The following will be used to determine the car's reliability score:
+
+## Hypothesis
+1. Null: Mechacar is statistically similar in cost of ownership to its competition.
+2. Alternative: Mechacar is greater or less in cost of ownership to its competition.
+
+## Metric
+- Cost of Ownership over Life of Car
+
+## Data Requirements
+
+### Categorical
+1. Car Manufacturer
+2. Car Model
+3. Car Category
+4. Car Subcategory / Size
+5. Model Year
+6. Used or New
+7. No. Owners
+
+### Continuous Data
+1. Dates of Maintenance
+2. Mileage on Maintenance Date
+3. Total Service Cost Before Tax
+4. Labor Cost Before Tax
+5. Parts Cost Before Tax
+
+### Discretized Data using Summary Statistics
+1. Maintenance Count
+2. Incremental Miles Driven
+3. Avg Service Cost per miles driven
+4. Avg Labor Cost per miles driven
+5. Avg Parts Cost per miles driven
+
+## Methodology
+- Filter the raw dataset to show only matching car models, categories and years which can be used to compare with MechaCar.
+  - Remove categories, car sizes, or years that do not align with MechaCar's catalog.
+  - Remove any outliers for hardly driven models below the 5th percentile.
+  - Remove any outliers for heavily used or driven models before the 95th percentile.
+- Group by the dataset to various categorical data.
+- Summarize the historical maintenance for each car.
+- Transform the time series maintenance data into discrete metrics.
+- Use multivariate regression on the discretized data to determine the cost of ownership over the miles driven for each car manufacturer.
 
